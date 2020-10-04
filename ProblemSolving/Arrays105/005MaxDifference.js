@@ -1,3 +1,4 @@
+
 //Maximum difference between two elements such that larger element appears after the smaller number
 
 let test =[2, 3, 10, 6, 4, 8, 1];
@@ -17,7 +18,7 @@ for(let i=0;i<array.length;i++){
             if(result.length){
                 result.pop();
             }
-            result.push([array[i],array[j],`${12+i}-buy time ${12+j}-sell Time`]);
+            result.push([array[i],array[j]]);
         }
     }
 }
@@ -26,5 +27,19 @@ return result;
 
 console.log(neiveApproach1(test));
 
+
 //Time:-O(n) Space:-O(n)
 //first create the diff array then find maximum sum of sub array that sum is the 
+
+
+let maxSumOfSubArray =require("./006MaximumSubArray(Kadane)")
+
+
+let bestFindDifference=(array)=>{
+    let diffArray=[];
+    for(let i=0;i<array.length-1;i++){
+        diffArray[i]=array[i+1]-array[i];
+    }
+    return maxSumOfSubArray.kadanesAlgo(diffArray)
+}
+console.log(bestFindDifference(test))
